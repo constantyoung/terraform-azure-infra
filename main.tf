@@ -38,7 +38,7 @@ resource "azurerm_public_ip" "lbpip" {
   name                = "loadbalancerpip"
   location            = "${var.location}"
   resource_group_name = "${azurerm_resource_group.rg.name}"
-  allocation_method   = "Static"
+  allocation_method   = "Dynamic"
 
   tags = "${var.tags}"
 }
@@ -104,12 +104,12 @@ resource "azurerm_network_interface" "nic" {
 
   ip_configuration {
     name                 = "pipconfiguration"
-    public_ip_address_id = "${azurerm_public_ip.vmpips.id[count.index]}"
+    public_ip_address_id = "${azurerm_public_ip.vmpip.*.id}"
     private_ip_address_allocation = "Dynamic"
   }
 }
 
-resource "azurerm_public_ip" "vmpips" {
+resource "azurerm_public_ip" "vmpip" {
   count               = 2
   name                = "vmpip${count.index}"
   location            = "${var.location}"
