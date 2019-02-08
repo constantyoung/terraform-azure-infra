@@ -57,7 +57,7 @@ resource "azurerm_virtual_machine" "vm1" {
   location              = "${azurerm_resource_group.rg.location}"
   resource_group_name   = "${azurerm_resource_group.rg.name}"
   network_interface_ids = ["${azurerm_network_interface.nic1.id}"]
-  vm_size               = "Standard D2s v3"
+  vm_size               = "Standard_DS2_v2"
   availability_set_id   = "${azurerm_availability_set.as.id}"
 
   # Uncomment this line to delete the OS disk automatically when deleting the VM
@@ -95,7 +95,7 @@ resource "azurerm_virtual_machine" "vm2" {
   location              = "${azurerm_resource_group.rg.location}"
   resource_group_name   = "${azurerm_resource_group.rg.name}"
   network_interface_ids = ["${azurerm_network_interface.nic2.id}"]
-  vm_size               = "Standard D2s v3"
+  vm_size               = "Standard_DS2_v2"
   availability_set_id   = "${azurerm_availability_set.as.id}"
 
   # Uncomment this line to delete the OS disk automatically when deleting the VM
