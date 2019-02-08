@@ -74,13 +74,13 @@ resource "azurerm_virtual_machine" "vm1" {
     version   = "latest"
   }
   storage_os_disk {
-    name              = "osdisk${count.index}"
+    name              = "osdisk1"
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Standard_LRS"
   }
   os_profile {
-    computer_name  = "vmname${count.index}"
+    computer_name  = "vmname1"
     admin_username = "localadmin"
     admin_password = "Password1234!"
   }
@@ -112,13 +112,13 @@ resource "azurerm_virtual_machine" "vm2" {
     version   = "latest"
   }
   storage_os_disk {
-    name              = "osdisk${count.index}"
+    name              = "osdisk2"
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Standard_LRS"
   }
   os_profile {
-    computer_name  = "vmname${count.index}"
+    computer_name  = "vmname2"
     admin_username = "localadmin"
     admin_password = "Password1234!"
   }
